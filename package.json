@@ -26,8 +26,7 @@
     "vscode": "^1.50.0"
   },
   "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:typescript"
+    "onStartupFinished"
   ],
   "contributes": {
     "configuration": {

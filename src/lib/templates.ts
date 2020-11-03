@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { PivotalErrorResponse, PivotalStorySuccessResponse } from './pivotal-types';
 import { formatDate } from './dates';
 
-type PreloadedTemplates = {
+export type PreloadedTemplates = {
   hoverTemplateSuccess: string;
   hoverTemplateError: string;
 };

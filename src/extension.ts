@@ -2,13 +2,30 @@
 
 import * as vscode from 'vscode';
 import { fetchStory } from './lib/pivotal';
-import { preloadTemplates, templatetizeErrorResponse, templatetizeSuccessResponse } from './lib/templates';
+import {
+  PreloadedTemplates,
+  preloadTemplates,
+  templatetizeErrorResponse,
+  templatetizeSuccessResponse,
+} from './lib/templates';
 
 export function activate(context: vscode.ExtensionContext): void {
   const regexp = /^#?(\d{9})$/;
   const templates = preloadTemplates();
+  const hoverProvider = generateHoverProvider(regexp, templates);
+  context.subscriptions.push(vscode.languages.registerHoverProvider('*', hoverProvider));
+}
 
-  const disposable = vscode.languages.registerHoverProvider('javascript', {
+export function deactivate(): void {
+  void 0;
+}
+
+// -----------------------------------------------------------------------------
+// HELPERS
+// -----------------------------------------------------------------------------
+
+function generateHoverProvider(regexp: RegExp, templates: PreloadedTemplates): vscode.HoverProvider {
+  return {
     async provideHover(document, position) {
       const wordRange = document.getWordRangeAtPosition(position);
       if (!wordRange) {
@@ -17,6 +34,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
       const word = document.getText(wordRange);
       const match = word.match(regexp);
+
       if (!match) {
         return;
       }
@@ -31,11 +49,5 @@ export function activate(context: vscode.ExtensionContext): void {
         return new vscode.Hover(templatetizeErrorResponse(response, templates));
       }
     },
-  });
-
-  context.subscriptions.push(disposable);
-}
-
-export function deactivate(): void {
-  void 0;
+  };
 }
