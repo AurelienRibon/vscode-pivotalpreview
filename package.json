@@ -37,11 +37,6 @@
           "type": "string",
           "default": "",
           "description": "A token to use to fetch data from pivotaltracker.com (you generate one from your Pivotal profile)."
-        },
-        "pivotalpreview.projectId": {
-          "type": "string",
-          "default": "",
-          "description": "The project id to fetch from (https://www.pivotaltracker.com/n/projects/{PROJECT_ID}."
         }
       }
     }

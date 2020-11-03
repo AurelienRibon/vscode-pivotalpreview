@@ -2,15 +2,13 @@ import * as https from 'https';
 import { OutgoingHttpHeaders } from 'http';
 import { PivotalResponse } from './pivotal-types';
 
-const URL_TEMPLATE = 'https://www.pivotaltracker.com/services/v5/projects/{projectId}/stories/{storyId}';
-const URL_STUB_PROJECTID = '{projectId}';
+const URL_TEMPLATE = 'https://www.pivotaltracker.com/services/v5/stories/{storyId}';
 const URL_STUB_STORYID = '{storyId}';
 
-export async function fetchStory(token: string, projectId: string, storyId: string): Promise<PivotalResponse> {
-  const url = URL_TEMPLATE.replace(URL_STUB_PROJECTID, projectId).replace(URL_STUB_STORYID, storyId);
-  const headers = { 'X-TrackerToken': token };
-  const response = await fetch(url, headers);
-  return safeParse(response) as PivotalResponse;
+export async function fetchStory(token: string, storyId: string): Promise<PivotalResponse> {
+  const url = URL_TEMPLATE.replace(URL_STUB_STORYID, storyId);
+  const res = await fetch(url, { 'X-TrackerToken': token });
+  return safeParse(res) as PivotalResponse;
 }
 
 // -----------------------------------------------------------------------------

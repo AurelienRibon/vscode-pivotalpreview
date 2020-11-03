@@ -22,10 +22,9 @@ export function activate(context: vscode.ExtensionContext): void {
       }
 
       const token = '883cd98100272fde8ab47478f0143b7a';
-      const projectId = '2152748';
 
       const storyId = match[1];
-      const response = await fetchStory(token, projectId, storyId);
+      const response = await fetchStory(token, storyId);
 
       if (response.kind === 'story') {
         return new vscode.Hover(templatetizeSuccessResponse(response, templates));
