@@ -2,8 +2,10 @@
 docs
 src
 
+.eslintignore
 .eslintrc.json
 .gitignore
 .prettierrc
 .vscodeignore
-README.md
+package-lock.json
+tsconfig.json
