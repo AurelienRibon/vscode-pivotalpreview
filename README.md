@@ -14,5 +14,5 @@ You're all set then!
 
 ![](https://github.com/AurelienRibon/vscode-pivotalpreview/raw/master/./docs/options.png)
 
-## LICENSE
+## License
 This extension is licensed under the [MIT License](https://github.com/AurelienRibon/vscode-pivotalpreview/blob/master/LICENSE).
