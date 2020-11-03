@@ -10,7 +10,7 @@ import {
 } from './lib/templates';
 
 export function activate(context: vscode.ExtensionContext): void {
-  const regexp = /^#?(\d{9})$/;
+  const regexp = /\b(\d{9})\b/;
   const templates = preloadTemplates();
   const hoverProvider = generateHoverProvider(regexp, templates);
   context.subscriptions.push(vscode.languages.registerHoverProvider('*', hoverProvider));
