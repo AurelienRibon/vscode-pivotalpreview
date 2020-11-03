@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { readFileSync } from 'fs';
-import { PivotalStoryErrorResponse, PivotalStorySuccessResponse } from './pivotal-types';
+import { PivotalErrorResponse, PivotalStorySuccessResponse } from './pivotal-types';
 import { formatDate } from './dates';
 
 type PreloadedTemplates = {
@@ -31,7 +31,7 @@ export function templatetizeSuccessResponse(
 }
 
 export function templatetizeErrorResponse(
-  res: PivotalStoryErrorResponse,
+  res: PivotalErrorResponse,
   templates: PreloadedTemplates
 ): vscode.MarkdownString {
   let description = '';

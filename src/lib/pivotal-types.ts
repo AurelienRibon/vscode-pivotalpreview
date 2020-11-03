@@ -1,4 +1,4 @@
-export type PivotalResponse = PivotalStorySuccessResponse | PivotalStoryErrorResponse;
+export type PivotalResponse = PivotalStorySuccessResponse | PivotalErrorResponse;
 
 export type PivotalStorySuccessResponse = {
   kind: 'story';
@@ -24,7 +24,7 @@ export type PivotalStorySuccessResponse = {
   }[];
 };
 
-export type PivotalStoryErrorResponse = {
+export type PivotalErrorResponse = {
   kind: 'error';
   code: string;
   error: string;
