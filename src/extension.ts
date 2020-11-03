@@ -21,9 +21,8 @@ export function activate(context: vscode.ExtensionContext): void {
         return;
       }
 
-      const token = '883cd98100272fde8ab47478f0143b7a';
-
       const storyId = match[1];
+      const { token } = vscode.workspace.getConfiguration('pivotalpreview');
       const response = await fetchStory(token, storyId);
 
       if (response.kind === 'story') {
