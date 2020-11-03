@@ -6,7 +6,7 @@
   "main": "./out/src/extension.js",
   "displayName": "Pivotal Tracker Preview",
   "description": "Shows a story preview upon mouseover on a Pivotal Tracker story id",
-  "icon": "docs/icon.png",
+  "icon": "res/icon.png",
   "publisher": "AurelienRibon",
   "categories": [
     "Other"
