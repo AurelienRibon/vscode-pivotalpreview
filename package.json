@@ -1,0 +1,66 @@
+{
+  "name": "pivotalpreview",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Aurelien Ribon <aurelien.ribon@gmail.com> (http://www.aurelienribon.com)",
+  "main": "./out/src/extension.js",
+  "displayName": "Pivotal Tracker Preview",
+  "description": "Shows a story preview upon mouseover on a Pivotal Tracker story id",
+  "icon": "docs/icon.png",
+  "publisher": "AurelienRibon",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "pivotal",
+    "pivotaltracker",
+    "story",
+    "preview",
+    "productivity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AurelienRibon/vscode-pivotalpreview"
+  },
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Pivotal Tracker Preview",
+      "properties": {
+        "pivotalpreview.token": {
+          "type": "string",
+          "default": "",
+          "description": "A token to use to fetch data from pivotaltracker.com (you generate one from your Pivotal profile)."
+        },
+        "pivotalpreview.projectId": {
+          "type": "string",
+          "default": "",
+          "description": "The project id to fetch from (https://www.pivotaltracker.com/n/projects/{PROJECT_ID}."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc",
+    "watch": "tsc -watch",
+    "lint": "eslint **/*.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@types/vscode": "^1.50.0",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.5"
+  }
+}
