@@ -1,0 +1,9 @@
+/.vscode
+/docs
+/src
+
+/.eslintrc.json
+/.gitignore
+/.prettierrc
+/.vscodeignore
+/README.md
